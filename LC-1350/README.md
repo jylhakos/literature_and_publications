@@ -1,4 +1,4 @@
-# Timeline for Large Language Models Replacing Human Translators in Text-to-Text Translation
+# Forecasting the Timeline of Shift to Large Language Models in Text-to-Text Translation
 
 ## Overview
 
@@ -62,4 +62,4 @@ Based on current industry predictions and research findings, this document will 
 
 *This document serves as the foundational structure for the academic publication on LLM translation timelines.*
 
-**Main Document**: See "Human Translators Shift to Large Language Models.md" for the research.
+**Main Document**: See "Forecasting the Timeline of Shift to Large Language Models in Text-to-Text Translation.md" for the research.

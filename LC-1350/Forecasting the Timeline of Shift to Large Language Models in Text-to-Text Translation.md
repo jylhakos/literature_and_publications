@@ -1,4 +1,4 @@
-# Predicting the Timeline for Large Language Model Replacement of Human Translators in Text-to-Text Translation: A Mathematical Modeling Approach for Swedish-English Bidirectional Translation
+# Forecasting the Timeline of Shift to Large Language Models in Text-to-Text Translation: A Mathematical Modeling Approach for Swedish-English Bidirectional Translation
 
 ## Abstract
 
