@@ -448,12 +448,12 @@ The smaller performance gap in Swedish→English translation aligns with typical
 **Figure 1: Performance by Domain (BERTScore)**
 
 ```
-General Text:     ░░░░░░░░░░░░░░░░░░░░ 89.4%
-News/Media:      ░░░░░░░░░░░░░░░░░░░  87.8%
-Technical Docs:  ░░░░░░░░░░░░░░░░     82.1%
-Legal Documents: ░░░░░░░░░░░░░        65.3%
-Medical Texts:   ░░░░░░░░░░░░░░       68.7%
-Literary Works:  ░░░░░░░░░░░░         59.2%
+General Text:     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 89.4%
+News/Media:      ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓  87.8%
+Technical Docs:  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓     82.1%
+Legal Documents: ▓▓▓▓▓▓▓▓▓▓▓▓▓        65.3%
+Medical Texts:   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓       68.7%
+Literary Works:  ▓▓▓▓▓▓▓▓▓▓▓▓         59.2%
 ```
 
 Domain analysis reveals significant performance variation:
