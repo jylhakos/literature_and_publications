@@ -1,4 +1,4 @@
-# Forecasting the Timeline of Shift to Large Language Models in Text-to-Text Translation
+# The Translation Transition: Mathematical Modeling of Timelines for Migration to Large Language Models in Translation Services
 
 ## Overview
 
@@ -62,4 +62,4 @@ Based on current industry predictions and research findings, this document will 
 
 *This document serves as the foundational structure for the academic publication on LLM translation timelines.*
 
-**Main Document**: See "Forecasting the Timeline of Shift to Large Language Models in Text-to-Text Translation.md" for the research.
+**Main Document**: See "Timeline of Shift to Large Language Models in Text-to-Text Translation.md" for the complete research paper.

@@ -540,4 +540,4 @@ def compare_models(data, models):
     return results
 ```
 
-This collection of mathematical formulas provides the quantitative foundation for predicting LLM displacement timelines in translation services, with specific focus on Swedish-English language pairs but generalizable to other contexts. These formulas are referenced throughout "Forecasting the Timeline of Shift to Large Language Models in Text-to-Text Translation.md" and research methodology.
+This collection of mathematical formulas provides the quantitative foundation for predicting LLM displacement timelines in translation services, with specific focus on Swedish-English language pairs but generalizable to other contexts. These formulas are referenced throughout the main research paper "Timeline of Shift to Large Language Models in Text-to-Text Translation.md" and support the comprehensive methodology.
