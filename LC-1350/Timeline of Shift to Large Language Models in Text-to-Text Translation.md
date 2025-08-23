@@ -251,7 +251,7 @@ The evaluation framework utilizes both automatic metrics and human evaluation st
 
 #### 3.3.1 Automatic Metrics
 
-This study employs a comprehensive suite of automatic evaluation metrics to assess translation quality (complete mathematical formulations provided in Appendix B):
+This study employs a suite of automatic evaluation metrics to assess translation quality (complete mathematical formulations provided in Appendix B):
 
 **BLEU Score Calculation**:
 ```
@@ -348,6 +348,8 @@ CE(t) = (Quality(t) × Speed(t)) / Cost(t)
 - Economic threshold: Uniform(0.7, 0.9) relative to human performance
 - Market adoption lag: Exponential(λ=0.5) years post-threshold
 - Quality measurement error: Normal(μ=0, σ=0.05)
+
+**Simulation Configuration**: 10,000 iterations with statistical analysis and visualization (detailed results and graphical analysis provided in Appendix C).
 
 **Simulation Configuration**:
 - 10,000 simulation runs
@@ -578,6 +580,8 @@ Where 0.82 represents the 82% quality threshold for widespread adoption.
 - Median: 21.1 months (Q2 2026)
 - 95% Confidence Interval: [15.7, 31.8] months
 - Probability before end of 2026: 78.9%
+
+**Note**: The statistical visualizations of these simulation results, including probability distribution plots, quality trajectory projections, parameter sensitivity analysis, and scenario planning charts are provided in **Appendix C: Monte Carlo Simulation Visualizations**.
 
 #### 4.4.2 Risk Analysis
 
@@ -1822,4 +1826,59 @@ def newton_raphson(f, df, x0, tolerance=1e-6, max_iterations=100):
 
 ---
 
-*Manuscript completed: August 19, 2025*
+## Appendix C: Monte Carlo Simulation Visualizations
+
+### C.1 Statistical Analysis
+
+The following visualization provides a statistical analysis of the Monte Carlo simulation results described in Section 4.4. The figure consists of four integrated panels that illustrate the probabilistic forecasting framework and timeline predictions for LLM displacement in Swedish-English translation services.
+
+![Monte Carlo Simulation Results](calibrated_monte_carlo_results.png)
+
+**Figure C.1: Monte Carlo Simulation Statistical Analysis**
+
+### C.2 Visualization Components
+
+#### Panel 1: Timeline Probability Distributions
+- **Blue distribution**: Probability density for achieving 90% human performance threshold
+- **Red distribution**: Probability density for market displacement (75% adoption)
+- Shows the likelihood of different timeline outcomes based on 10,000 simulation iterations
+
+#### Panel 2: Quality Trajectory Projections  
+- **Blue line**: Mean quality trajectory projection from 2020-2030
+- **Shaded area**: ±1 standard deviation confidence band
+- **Red dashed line**: 90% human performance target threshold
+- **Green dotted line**: Current time reference (August 2025)
+
+#### Panel 3: Parameter Sensitivity Matrix
+- **Correlation heatmap**: Shows relationships between input parameters and timeline outcomes
+- **Key insights**: Economic threshold and quality improvement rate show strongest correlations
+- **Red/Blue scale**: Positive and negative correlations with displacement timeline
+
+#### Panel 4: Scenario Planning Analysis
+- **Green bar**: Optimistic scenario (90th percentile, fastest displacement)
+- **Orange bar**: Most likely scenario (50th percentile, median outcome)  
+- **Red bar**: Conservative scenario (10th percentile, slowest displacement)
+- **Labels**: Timeline values in months with corresponding quarter/year predictions
+
+### C.3 Statistical Interpretation
+
+The visualization demonstrates the robustness of the forecasting methodology through:
+
+1. **Convergence Analysis**: Distribution shapes indicate stable convergence after 10,000 iterations
+2. **Uncertainty Quantification**: Confidence intervals provide explicit risk assessment
+3. **Parameter Sensitivity**: Correlation matrix identifies key drivers of timeline variation
+4. **Scenario Planning**: Multiple timeline scenarios support strategic decision-making
+
+### C.4 Technical Implementation
+
+The visualization was generated using the Monte Carlo simulation framework implemented in Python, incorporating:
+- NumPy and SciPy for statistical computations
+- Matplotlib and Seaborn for scientific visualization
+- Scikit-learn for cross-validation and model assessment
+- Statistical distributions: Normal, Uniform, and Exponential parameter sampling
+
+This statistical analysis provides evidence-based support for the timeline predictions and uncertainty assessments presented in the main research findings.
+
+---
+
+*Manuscript completed: August 23, 2025*
