@@ -1,0 +1,65 @@
+Evaluation of Model Context Protocol (MCP) with AI Agents
+
+Date: October 13, 2025
+Course: CS-E4660
+Research Scope: Evaluating Model Context Protocol (MCP) for AI Agent Interactions
+
+Abstract
+
+The development of artificial intelligence (AI) agents capable of interacting with external tools and services
+traditionally requires implementing custom integration logic for each API, managing authentication methods,
+and handling error response formats. The Model Context Protocol (MCP), introduced by Anthropic in November 2024,
+states that a paradigm shift toward standardized, protocol-driven AI-tool communication. However, empirical
+research quantifying MCP's transformative impact on development practices and agent capabilities remains absent.
+This study explorers how the development of AI agents is transformed by MCP adoption. Specifically,
+the research analyzes whether MCP integration leads to reduced development time and improved AI agent
+capabilities compared to traditional API integration approaches. The research employs an experimental work
+with randomized controlled trials comparing MCP-based development (treatment) against traditional API integration
+(control) using the Arcee Agent model (7B parameter function-calling small language model). This research provides
+the empirical evaluation of MCP's transformative impact on AI agent development. Findings will inform
+software engineering practices, guide protocol adoption decisions, and advance understanding of how standardization
+shapes development workflows and AI agent capabilities.
+
+Research Problem
+
+How the development of artificial intelligence (AI) agents is transformed by the Model Context Protocol (MCP)?
+
+Research Question
+
+Does Model Context Protocol (MCP) integration lead to reduced development time and improved AI agent capabilities compared
+to traditional API integration approaches?
+
+The research explores whether MCP adoption (a) transforms development practices by decreasing implementation time,
+reducing code complexity, and minimizing integration effort, and (b) enhances AI agent operational capabilities
+measured by task completion rates, tool invocation success, and system efficiency in Arcee Agent model based applications.
+
+Research Problem Context
+
+The landscape of AI agent development is undergoing rapid evolution, with emerging protocols proposing
+new paradigms for tool integration and context management. Traditional approaches require developers to
+implement custom integration logic for each external service, manage authentication schemes, and
+handle error responses. The Model Context Protocol (MCP) presents a approach as follows: A standardized,
+protocol-driven framework for AI-tool communication. This transformation encompasses multiple dimensions from
+development workflows and code architecture to AI agent runtime behavior and operational characteristics.
+However, empirical validation of MCP's transformative states that across these dimensions remains absent,
+creating uncertainty about the practical effects of protocol adoption.
+
+Conclusion
+
+This research proposal outlines a confirmatory experimental study to evaluate
+the integration of Model Context Protocol with the Arcee Agent model. The study
+tests hypotheses regarding performance, efficiency, and reliability 
+improvements resulting from MCP integration.
+
+References
+Arcee Agent https://huggingface.co/arcee-ai/Arcee-Agent
+Building AI agents with the Claude Agent SDK
+https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk
+Developer resources to work with Arcee Agent models on AWS
+https://github.com/arcee-ai/aws-samples
+Use metrics to understand model performance
+https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-
+metrics.html
+AI agents evals for MCP in AIOps
+https://www.thoughtworks.com/en-us/insights/blog/generative-ai/AI-evals-for-MCP-
+in-AIOps
