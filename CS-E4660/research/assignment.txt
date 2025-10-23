@@ -35,7 +35,7 @@ measured by task completion rates, tool invocation success, and system efficienc
 
 Research Problem Context
 
-The landscape of AI agent development is undergoing rapid evolution, with emerging protocols proposing
+The landscape of AI agent development is undergoing evolution, with emerging protocols proposing
 new paradigms for tool integration and context management. Traditional approaches require developers to
 implement custom integration logic for each external service, manage authentication schemes, and
 handle error responses. The Model Context Protocol (MCP) presents a approach as follows: A standardized,
@@ -43,6 +43,40 @@ protocol-driven framework for AI-tool communication. This transformation encompa
 development workflows and code architecture to AI agent runtime behavior and operational characteristics.
 However, empirical validation of MCP's transformative states that across these dimensions remains absent,
 creating uncertainty about the practical effects of protocol adoption.
+
+**How Hypotheses Are Calculated?**
+
+All effect size predictions follow this methodology:
+
+1. **Analogical Reasoning from Literature**
+   - Compare MCP to similar standardization interventions in software engineering
+   - Extract reported effect sizes from peer-reviewed studies
+   - Apply conservative estimates (lower bound of literature ranges)
+
+2. **Theoretical Decomposition (Task Analysis)**
+   - Break down development activities into components
+   - Estimate savings per component under MCP vs. traditional
+   - Weight by typical time allocation
+   - Calculate aggregate effect: `Σ(Component_Weight × Elimination_Rate)`
+
+3. **Pilot Study Calibration** (To be conducted)
+   - Measure actual effects in small-scale pilot (n=10-20)
+   - Compare observed vs. predicted effect sizes
+   - Adjust predictions if |observed - predicted| > 0.3 standard deviations
+
+**Effect Size Formulas:**
+
+For reductions (H₁, H₂, H₃, H₄, H₆, H₈):
+```
+% Reduction = [(Control_Mean - Treatment_Mean) / Control_Mean] × 100
+Cohen's d = (M_treatment - M_control) / SD_pooled
+```
+
+For improvements (H₅, H₇, H₉):
+```
+% Improvement = [(Treatment_Mean - Control_Mean) / Control_Mean] × 100
+Cohen's d = (M_treatment - M_control) / SD_pooled
+```
 
 Conclusion
 
@@ -52,14 +86,40 @@ tests hypotheses regarding performance, efficiency, and reliability
 improvements resulting from MCP integration.
 
 References
+
 Arcee Agent https://huggingface.co/arcee-ai/Arcee-Agent
+
 Building AI agents with the Claude Agent SDK
 https://www.anthropic.com/engineering/building-agents-with-the-claude-agent-sdk
+
 Developer resources to work with Arcee Agent models on AWS
 https://github.com/arcee-ai/aws-samples
+
 Use metrics to understand model performance
 https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-
 metrics.html
+
 AI agents evals for MCP in AIOps
 https://www.thoughtworks.com/en-us/insights/blog/generative-ai/AI-evals-for-MCP-
 in-AIOps
+
+Parnas (1972) https://dl.acm.org/doi/pdf/10.1145/361598.361623
+
+McIlroy (1968) https://www.cs.dartmouth.edu/~doug/components.txt
+
+Basili & Weiss (1984) https://ieeexplore.ieee.org/document/5010301
+
+Prechelt (2000) https://page.mi.fu-berlin.de/prechelt/Biblio/jccpprtTR.pdf
+
+Cognitive Science: Sweller (1988) https://onlinelibrary.wiley.com/doi/abs/10.1207/s15516709cog1202_4
+
+Carroll & Rosson (1987) The paradox of the active user https://dl.acm.org/doi/10.5555/28446.28451
+
+Tanenbaum & Wetherall (2011) www.distributed-systems.net
+
+Herbsleb & Mockus (2003) https://ieeexplore.ieee.org/document/1205177
+
+Anthropic (2024) https://modelcontextprotocol.io/docs/getting-started/intro
+
+Berkeley Function Calling Leaderboard (2024) https://gorilla.cs.berkeley.edu/leaderboard.html
+
