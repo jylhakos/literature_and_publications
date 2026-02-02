@@ -1,11 +1,3 @@
-<!--
-NOTE: Some Markdown renderers (e.g., GitHub) sanitize/ignore CSS, so this may not
-remove underlines everywhere. It does work in many Markdown preview/export tools.
--->
-<style>
-a { text-decoration: none; }
-</style>
-
 Beyond Text-Only Models: Integrating Vision into Large Language Models
 
 ## Table of Contents
