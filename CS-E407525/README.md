@@ -42,7 +42,7 @@ This document explores aspects of multimodal large language models, based on Seb
 
 ![Figure 1](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%201.png)
 
-**Figure 1:** Illustration of a multimodal large language models that accepts multiple input modalities (audio, text, images, and video) and produces text output. Source: Sebastian Raschka
+*Figure 1: Illustration of a multimodal large language models that accepts multiple input modalities (audio, text, images, and video) and produces text output. Source: Sebastian Raschka*
 
 The multimodal large language models (LLMs) are large language models capable of processing multiple types of input, where each modality refers to a specific type of data, such as text, audio, images, and video. An illustration in the article depicts a multimodal LLM that accepts different input modalities (audio, text, images, and video) and produces text as the output modality.
 
@@ -57,7 +57,7 @@ The multimodal large language models (LLMs) are large language models capable of
 
 ![Figure 2](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%202.png)
 
-**Figure 2:** Example of image captioning and visual understanding to explain a meme using multimodal LLMs. Source: Sebastian Raschka
+*Figure 2: Example of image captioning and visual understanding to explain a meme using multimodal LLMs. Source: ChatGPT*
 
 This use case shows how multimodal LLMs connect visual and textual information, expanding capabilities beyond those of traditional text-only large language models.
 
@@ -69,7 +69,7 @@ The article presents two main architectural approaches, referred to as methods A
 
 ![Figure 3](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%203.png)
 
-**Figure 3:** Illustration of the unified embedding decoder architecture - an unmodified decoder-style LLM that receives inputs consisting of image token and text token embeddings. Source: Sebastian Raschka
+*Figure 3: Illustration of the unified embedding decoder architecture - an unmodified decoder-style LLM that receives inputs consisting of image token and text token embeddings. Source: Sebastian Raschka*
 
 Method A approach uses a single decoder model, similar to an unmodified LLM architecture such as GPT-2 or LLaMA 3.2.
 
@@ -79,7 +79,7 @@ Images are converted into tokens with the same embedding size as the original te
 
 ![Figure 4](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%204.png)
 
-**Figure 4:** Illustration of the text input tokenized (e.g., using Byte-Pair Encoding) and then passed through an embedding layer. Source: Sebastian Raschka
+*Figure 4: Illustration of the text input tokenized (e.g., using Byte-Pair Encoding) and then passed through an embedding layer. Source: Sebastian Raschka*
 
 #### Method A: Components
 
@@ -89,7 +89,7 @@ The image embeddings are generated using an image encoder module (instead of a t
 
 ![Figure 5](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%205.png)
 
-**Figure 5:** Illustration of the process for encoding an image into image patch embeddings. Source: Sebastian Raschka
+*Figure 5: Illustration of the process for encoding an image into image patch embeddings. Source: Sebastian Raschka*
 
 #### The vision transformer
 
@@ -97,13 +97,13 @@ To process an image, the image encoder divides it into smaller patches, which ar
 
 ![Figure 6](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%206.png)
 
-**Figure 6:** Illustration of a classic vision transformer (ViT) setup. Source: Sebastian Raschka
+*Figure 6: Illustration of a classic vision transformer (ViT) setup. Source: Sebastian Raschka*
 
 2. **Linear Projection Module:** The linear projection shown in the below figure consists of a single linear layer (i.e., a fully connected layer). The purpose of this layer is to project the image patches, which are flattened into a vector, into an embedding size compatible with the transformer encoder.
 
 ![Figure 7](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%207.png)
 
-**Figure 7:** Illustration of a linear projection layer that projects flattened image patches from a 256-dimensional into a 768-dimensional embedding space. Source: Sebastian Raschka
+*Figure 7: Illustration of a linear projection layer that projects flattened image patches from a 256-dimensional into a 768-dimensional embedding space. Source: Sebastian Raschka*
 
 3. **Projector:** An additional linear projection layer that projects the image encoder outputs into dimensions matching the embedded text tokens.
 
@@ -115,7 +115,7 @@ The projector is sometimes also called adapter or connector.
 
 ![Figure 8](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%208.png)
 
-**Figure 8:** Image tokenization and embedding (left) and text tokenization and embedding (right) side by side. Source: Sebastian Raschka
+*Figure 8: Image tokenization and embedding (left) and text tokenization and embedding (right) side by side. Source: Sebastian Raschka*
 
 The figure (left) shows an additional projector module that follows the image encoder. This projector is typically another linear projection layer, similar to the one explained earlier.
 
@@ -141,13 +141,13 @@ Some versions of Method A, such as Fuyu, operate directly on image patches witho
 
 ![Figure 9](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%209.jpg)
 
-**Figure 9:** Annotated figure of the Fuyu multimodal LLM that operates directly on image patches without image encoder. Source: Sebastian Raschka
+*Figure 9: Annotated figure of the Fuyu multimodal LLM that operates directly on image patches without image encoder. Source: Sebastian Raschka*
 
 ### Method B: Cross-Modality Attention Architecture
 
 ![Figure 10](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2010.png)
 
-**Figure 10:** Illustration of the Cross-Modality Attention Architecture approach to building multimodal LLMs. Source: Sebastian Raschka
+*Figure 10: Illustration of the Cross-Modality Attention Architecture approach to building multimodal LLMs. Source: Sebastian Raschka*
 
 An alternative approach, Method B, connects input patches within the multi-head attention layer via a cross-attention mechanism derived from the original Transformer architecture introduced in the "Attention Is All You Need" paper.
 
@@ -163,13 +163,13 @@ In the context of multimodal LLMs, the encoder is an image encoder rather than a
 
 ![Figure 11](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2011.png)
 
-**Figure 11:** High-level illustration of the cross-attention mechanism used in the original transformer architecture. Source: Sebastian Raschka
+*Figure 11: High-level illustration of the cross-attention mechanism used in the original transformer architecture. Source: Sebastian Raschka*
 
 #### Self-Attention Module
 
 ![Figure 12](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2012.png)
 
-**Figure 12:** Outline of the regular self-attention mechanism. Source: Sebastian Raschka
+*Figure 12: Outline of the regular self-attention mechanism. Source: Sebastian Raschka*
 
 In self-attention, queries (Q), keys (K), and values (V) all come from the same input sequence.
 
@@ -177,7 +177,7 @@ In self-attention, queries (Q), keys (K), and values (V) all come from the same 
 
 ![Figure 13](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2013.png)
 
-**Figure 13:** Illustration of cross-attention, where there can be two different inputs x1 and x2. Source: Sebastian Raschka
+*Figure 13: Illustration of cross-attention, where there can be two different inputs x1 and x2. Source: Sebastian Raschka*
 
 In cross-attention, there are two different input sources: one for queries (typically from the decoder text sequence) and another for keys and values (from the encoder image sequence).
 
@@ -195,7 +195,7 @@ The cross-attention allows the model to "attend" to image features while process
 
 ![Figure 14](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2014.png)
 
-**Figure 14:** An overview of Unified Decoder and Cross-Attention training for Multimodal LLMs. The components numbered 1-3 can be frozen or unfrozen during the multimodal training process. Source: Sebastian Raschka
+*Figure 14: An overview of Unified Decoder and Cross-Attention training for Multimodal LLMs. The components numbered 1-3 can be frozen or unfrozen during the multimodal training process. Source: Sebastian Raschka*
 
 ### Training Process
 
@@ -289,25 +289,25 @@ Recent methods demonstrate the evolution of the multimodal large language models
 
 ![Figure 15](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2015.png)
 
-**Figure 15:** Illustration of the multimodal LLM approach used by Llama 3.2. Source: Sebastian Raschka
+*Figure 15: Illustration of the multimodal LLM approach used by Llama 3.2. Source: Sebastian Raschka*
 
 ### Molmo
 
 ![Figure 16](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2016.png)
 
-**Figure 16:** Illustration of the Molmo decoder-only approach (Method A). Source: Sebastian Raschka
+*Figure 16: Illustration of the Molmo decoder-only approach (Method A). Source: Sebastian Raschka*
 
 ### NVLM
 
 ![Figure 17](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2017.png)
 
-**Figure 17:** Overview of the three multimodal approaches in NVLM. Source: Sebastian Raschka
+*Figure 17: Overview of the three multimodal approaches in NVLM. Source: Sebastian Raschka*
 
 ### Qwen2-VL
 
 ![Figure 18](https://github.com/jylhakos/literature_and_publications/blob/main/CS-E407525/images/Figure%2018.png)
 
-**Figure 18:** An overview of the multimodal Qwen model, which can process input images with various different resolutions natively. Source: Sebastian Raschka
+*Figure 18: An overview of the multimodal Qwen model, which can process input images with various different resolutions natively. Source: Sebastian Raschka*
 
 ## Conclusion
 
