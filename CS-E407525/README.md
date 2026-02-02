@@ -1,40 +1,48 @@
+<!--
+NOTE: Some Markdown renderers (e.g., GitHub) sanitize/ignore CSS, so this may not
+remove underlines everywhere. It does work in many Markdown preview/export tools.
+-->
+<style>
+a { text-decoration: none; }
+</style>
+
 Beyond Text-Only Models: Integrating Vision into Large Language Models
 
 ## Table of Contents
-1. [Introduction](#introduction)
-2. [1. Use Cases](#1-use-cases)
-   1. [Image Captioning and Visual Understanding](#image-captioning-and-visual-understanding)
-3. [2. Common approaches to building multimodal LLMs](#2-common-approaches-to-building-multimodal-llms)
-   1. [Method A: Unified Decoder](#method-a-unified-decoder)
-      1. [Text tokenization](#text-tokenization)
-      2. [Method A: Components](#method-a-components)
-      3. [The vision transformer](#the-vision-transformer)
-      4. [Image vs Text Tokenization](#image-vs-text-tokenization)
-      5. [Image Tokenization](#image-tokenization)
-      6. [Method A: Advantages](#method-a-advantages)
-   2. [Method B: Cross-Modality Attention Architecture](#method-b-cross-modality-attention-architecture)
-      1. [Method B: Components](#method-b-components)
-      2. [Cross-Attention](#cross-attention)
-      3. [Self-Attention Module](#self-attention-module)
-      4. [Cross-Attention Module](#cross-attention-module)
-      5. [Method B: Advantages](#method-b-advantages)
-4. [3. Methods A and B model training](#3-methods-a-and-b-model-training)
-   1. [Training Process](#training-process)
-   2. [Component-Specific Training Strategies](#component-specific-training-strategies)
-   3. [Training Phase Strategy](#training-phase-strategy)
-   4. [Comparisons and Considerations of Methods](#comparisons-and-considerations-of-methods)
-5. [4. Multimodal Methods in Large Language Models](#4-multimodal-methods-in-large-language-models)
-   1. [Image Encoder Choices](#image-encoder-choices)
-   2. [Resolution Handling](#resolution-handling)
-   3. [Projector or Adapter](#projector-or-adapter)
-   4. [Training Strategy](#training-strategy)
-   5. [Hybrid Approaches](#hybrid-approaches)
-   6. [Llama 3.2](#llama-32)
-   7. [Molmo](#molmo)
-   8. [NVLM](#nvlm)
-   9. [Qwen2-VL](#qwen2-vl)
-6. [Conclusion](#conclusion)
-7. [References](#references)
+<a href="#introduction">Introduction</a><br>
+<a href="#1-use-cases">Use Cases</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-captioning-and-visual-understanding">Image Captioning and Visual Understanding</a><br>
+<a href="#2-common-approaches-to-building-multimodal-llms">Common approaches to building multimodal LLMs</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-unified-decoder">Method A: Unified Decoder</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#text-tokenization">Text tokenization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-components">Method A: Components</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-vision-transformer">The vision transformer</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-vs-text-tokenization">Image vs Text Tokenization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-tokenization">Image Tokenization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-advantages">Method A: Advantages</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-cross-modality-attention-architecture">Method B: Cross-Modality Attention Architecture</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-components">Method B: Components</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cross-attention">Cross-Attention</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#self-attention-module">Self-Attention Module</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cross-attention-module">Cross-Attention Module</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-advantages">Method B: Advantages</a><br>
+<a href="#3-methods-a-and-b-model-training">Methods A and B model training</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-process">Training Process</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#component-specific-training-strategies">Component-Specific Training Strategies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-phase-strategy">Training Phase Strategy</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#comparisons-and-considerations-of-methods">Comparisons and Considerations of Methods</a><br>
+<a href="#4-multimodal-methods-in-large-language-models">Multimodal Methods in Large Language Models</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-encoder-choices">Image Encoder Choices</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#resolution-handling">Resolution Handling</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#projector-or-adapter">Projector or Adapter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-strategy">Training Strategy</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hybrid-approaches">Hybrid Approaches</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#llama-32">Llama 3.2</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#molmo">Molmo</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#nvlm">NVLM</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#qwen2-vl">Qwen2-VL</a><br>
+<a href="#conclusion">Conclusion</a><br>
+<a href="#references">References</a>
 
 ## Introduction
 
