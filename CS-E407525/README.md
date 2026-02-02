@@ -9,40 +9,40 @@ a { text-decoration: none; }
 Beyond Text-Only Models: Integrating Vision into Large Language Models
 
 ## Table of Contents
-<a href="#introduction">Introduction</a><br>
-<a href="#1-use-cases">Use Cases</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-captioning-and-visual-understanding">Image Captioning and Visual Understanding</a><br>
-<a href="#2-common-approaches-to-building-multimodal-llms">Common approaches to building multimodal LLMs</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-unified-decoder">Method A: Unified Decoder</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#text-tokenization">Text tokenization</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-components">Method A: Components</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-vision-transformer">The vision transformer</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-vs-text-tokenization">Image vs Text Tokenization</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-tokenization">Image Tokenization</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-advantages">Method A: Advantages</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-cross-modality-attention-architecture">Method B: Cross-Modality Attention Architecture</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-components">Method B: Components</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cross-attention">Cross-Attention</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#self-attention-module">Self-Attention Module</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cross-attention-module">Cross-Attention Module</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-advantages">Method B: Advantages</a><br>
-<a href="#3-methods-a-and-b-model-training">Methods A and B model training</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-process">Training Process</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#component-specific-training-strategies">Component-Specific Training Strategies</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-phase-strategy">Training Phase Strategy</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#comparisons-and-considerations-of-methods">Comparisons and Considerations of Methods</a><br>
-<a href="#4-multimodal-methods-in-large-language-models">Multimodal Methods in Large Language Models</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-encoder-choices">Image Encoder Choices</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#resolution-handling">Resolution Handling</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#projector-or-adapter">Projector or Adapter</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-strategy">Training Strategy</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hybrid-approaches">Hybrid Approaches</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#llama-32">Llama 3.2</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#molmo">Molmo</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#nvlm">NVLM</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#qwen2-vl">Qwen2-VL</a><br>
-<a href="#conclusion">Conclusion</a><br>
-<a href="#references">References</a>
+<a href="#introduction" style="text-decoration: none; color: inherit;">Introduction</a><br>
+<a href="#1-use-cases" style="text-decoration: none; color: inherit;">Use Cases</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-captioning-and-visual-understanding" style="text-decoration: none; color: inherit;">Image Captioning and Visual Understanding</a><br>
+<a href="#2-common-approaches-to-building-multimodal-llms" style="text-decoration: none; color: inherit;">Common approaches to building multimodal LLMs</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-unified-decoder" style="text-decoration: none; color: inherit;">Method A: Unified Decoder</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#text-tokenization" style="text-decoration: none; color: inherit;">Text tokenization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-components" style="text-decoration: none; color: inherit;">Method A: Components</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#the-vision-transformer" style="text-decoration: none; color: inherit;">The vision transformer</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-vs-text-tokenization" style="text-decoration: none; color: inherit;">Image vs Text Tokenization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-tokenization" style="text-decoration: none; color: inherit;">Image Tokenization</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-a-advantages" style="text-decoration: none; color: inherit;">Method A: Advantages</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-cross-modality-attention-architecture" style="text-decoration: none; color: inherit;">Method B: Cross-Modality Attention Architecture</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-components" style="text-decoration: none; color: inherit;">Method B: Components</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cross-attention" style="text-decoration: none; color: inherit;">Cross-Attention</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#self-attention-module" style="text-decoration: none; color: inherit;">Self-Attention Module</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cross-attention-module" style="text-decoration: none; color: inherit;">Cross-Attention Module</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#method-b-advantages" style="text-decoration: none; color: inherit;">Method B: Advantages</a><br>
+<a href="#3-methods-a-and-b-model-training" style="text-decoration: none; color: inherit;">Methods A and B model training</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-process" style="text-decoration: none; color: inherit;">Training Process</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#component-specific-training-strategies" style="text-decoration: none; color: inherit;">Component-Specific Training Strategies</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-phase-strategy" style="text-decoration: none; color: inherit;">Training Phase Strategy</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#comparisons-and-considerations-of-methods" style="text-decoration: none; color: inherit;">Comparisons and Considerations of Methods</a><br>
+<a href="#4-multimodal-methods-in-large-language-models" style="text-decoration: none; color: inherit;">Multimodal Methods in Large Language Models</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#image-encoder-choices" style="text-decoration: none; color: inherit;">Image Encoder Choices</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#resolution-handling" style="text-decoration: none; color: inherit;">Resolution Handling</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#projector-or-adapter" style="text-decoration: none; color: inherit;">Projector or Adapter</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#training-strategy" style="text-decoration: none; color: inherit;">Training Strategy</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#hybrid-approaches" style="text-decoration: none; color: inherit;">Hybrid Approaches</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#llama-32" style="text-decoration: none; color: inherit;">Llama 3.2</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#molmo" style="text-decoration: none; color: inherit;">Molmo</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#nvlm" style="text-decoration: none; color: inherit;">NVLM</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#qwen2-vl" style="text-decoration: none; color: inherit;">Qwen2-VL</a><br>
+<a href="#conclusion" style="text-decoration: none; color: inherit;">Conclusion</a><br>
+<a href="#references" style="text-decoration: none; color: inherit;">References</a>
 
 ## Introduction
 
